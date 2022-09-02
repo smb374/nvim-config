@@ -4,10 +4,13 @@
 (require :plugins.essentials)
 (require :plugins.wip)
 ;; plugin-wise, alpha order
+(require :plugins.autopairs)
 (require :plugins.bufdelete)
 (require :plugins.bufferline)
 (require :plugins.gitsigns)
 (require :plugins.indent-blankline)
+(require :plugins.lsp)
+(require :plugins.mason)
 (require :plugins.nord)
 (require :plugins.nvim-notify)
 (require :plugins.nvim-tree)

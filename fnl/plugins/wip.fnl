@@ -3,4 +3,3 @@
 
 (use :ggandor/lightspeed.nvim)
 (use :hrsh7th/nvim-cmp)
-(use :neovim/nvim-lspconfig)
