@@ -1,24 +1,22 @@
 (import-macros {: packadd!} :macros)
-(local utils (require :utils))
-(local use utils.use)
-(local wk-register utils.wk-register)
+(local {: use : wk-register} (require :utils))
 
 (fn config []
-  (let [(ok? telescope) (pcall #(require :telescope))]
+  (let [(ok? {: setup : load_extension}) (pcall #(require :telescope))]
     (when ok?
-      (telescope.setup {:extensions {:fzf {:fuzzy true
-                                           :override_generic_sorter true
-                                           :override_file_sorter true
-                                           :case_mode :smart_case}}})
+      (setup {:extensions {:fzf {:fuzzy true
+                                 :override_generic_sorter true
+                                 :override_file_sorter true
+                                 :case_mode :smart_case}}})
       (packadd! telescope-fzf-native.nvim)
       (packadd! telescope-ui-select.nvim)
       (packadd! telescope-file-browser.nvim)
-      (telescope.load_extension :fzf)
-      (telescope.load_extension :ui-select)
-      (telescope.load_extension :file_browser)
+      (load_extension :fzf)
+      (load_extension :ui-select)
+      (load_extension :file_browser)
       (when (= (vim.fn.executable :uebezug) 1)
         (packadd! telescope-media-files.nvim)
-        (telescope.load_extension :media_files)))))
+        (load_extension :media_files)))))
 
 (wk-register {:f {:name :Telescope
                   :f ["<cmd>Telescope find_files hidden=true<cr>" "Find File"]

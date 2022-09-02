@@ -1,4 +1,4 @@
-(local use (. (require :utils) :use))
+(local {: use} (require :utils))
 
 (fn config []
   (let [(ok? gitsigns) (pcall #(require :gitsigns))]

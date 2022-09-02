@@ -1,11 +1,9 @@
-(local utils (require :utils))
-(local use utils.use)
-(local wk-register utils.wk-register)
+(local {: use : wk-register} (require :utils))
 
 (fn config []
-  (let [(ok? nt) (pcall #(require :nvim-tree))]
+  (let [(ok? {: setup} ) (pcall #(require :nvim-tree))]
     (when ok?
-      (nt.setup {:view {:side :left :width 25 :hide_root_folder true :adaptive_size true}}
+      (setup {:view {:side :left :width 25 :hide_root_folder true :adaptive_size true}}
           :disable_netrw true
           :hijack_netrw true
           :hijack_cursor true

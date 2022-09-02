@@ -1,4 +1,4 @@
-(local use (. (require :utils) :use))
+(local {: use} (require :utils))
 
 (use :shaunsingh/nord.nvim
      {:config (fn [] (let [g vim.g

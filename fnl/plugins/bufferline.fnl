@@ -1,4 +1,4 @@
-(local use (. (require :utils) :use))
+(local {: use} (require :utils))
 
 (use :akinsho/bufferline.nvim
      {:opt true
