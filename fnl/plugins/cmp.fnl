@@ -32,7 +32,8 @@
                         :Event ""
                         :Operator ""
                         :TypeParameter ""})
-          (cmp.setup {:window {:documentation {:border :solid} :completion {:border :solid}}
+          (cmp.setup {:experimental {:ghost_text true}
+                      :window {:documentation {:border :solid} :completion {:border :solid}}
                       :preselect cmp.PreselectMode.None
                       :snippet {:expand (fn [args] (luasnip.lsp_expand args.body))}
                       :mapping {:<C-b> (cmp.mapping.scroll_docs -4)
@@ -68,12 +69,13 @@
                                   :sources [{:name :buffer}]})
           (cmp.setup.cmdline ":" {:mapping (cmp.mapping.preset.cmdline)
                                   :sources [{:name :path}
-                                            {:name :cmdline}]}))))
+                                            {:name :cmdline}]})
+          (let [{: lazy_load} (require :luasnip.loaders.from_vscode)] (lazy_load)))))
 
 ;; Chain load plugins befor config
 (use :L3MON4D3/LuaSnip {:event [:InsertEnter :CmdLineEnter]})
 (use :hrsh7th/nvim-cmp)
-(use :rafamadriz/friendly-snippets {:after [:cmp_luasnip]
+(use :rafamadriz/friendly-snippets {:after [:nvim-cmp :LuaSnip :cmp_luasnip]
                                     :config config})
 
 (use :hrsh7th/cmp-path {:after :nvim-cmp})

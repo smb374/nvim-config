@@ -1,4 +1,4 @@
-(local {: use : wk-register} (require :utils))
+(local {: use} (require :utils))
 
 (fn config []
   (let [(ok? {: setup} ) (pcall #(require :nvim-tree))]
@@ -13,8 +13,6 @@
           :hijack_directories {:enable true :auto_open true}
           :actions {:open_file {:resize_window true}}
           :renderer {:indent_markers {:enable false}}))))
-
-(wk-register {:e ["<cmd>NvimTreeToggle<cr>" "Open Explorer"]})
 
 (use :kyazdani42/nvim-tree.lua
      {:cmd :NvimTreeToggle
