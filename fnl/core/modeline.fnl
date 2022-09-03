@@ -38,13 +38,13 @@
 (fn color []
   (let [mode (. (nvim.get_mode) :mode)]
     (var mode-color "%#Normal#")
-    (if (= mode :n) (set mode-color "%#StatusNormal#")
-        (or (= mode :i) (= mode :ic)) (set mode-color "%#StatusInsert#")
+    (if (= mode :n) (set mode-color "%#NormalMode#")
+        (or (= mode :i) (= mode :ic)) (set mode-color "%#InsertMode#")
         (or (or (= mode :v) (= mode :V)) (= mode "\022"))
-        (set mode-color "%#StatusVisual#") (= mode :R)
-        (set mode-color "%#StatusReplace#") (= mode :c)
-        (set mode-color "%#StatusCommand#") (= mode :t)
-        (set mode-color "%#StatusTerminal#"))
+        (set mode-color "%#VisualMode#") (= mode :R)
+        (set mode-color "%#ReplaceMode#") (= mode :c)
+        (set mode-color "%#CommandMode#") (= mode :t)
+        (set mode-color "%#TerminalMode#"))
     mode-color))
 
 (fn get-fileinfo []
@@ -96,8 +96,7 @@
                                             "%= "
                                             (get-diagnostic)
                                             (get-filetype)
-                                            "%#Normal# %l:%c "
-                                            (get-searchcount)])))
+                                            "%#Normal# %l:%c "])))
 
 (set opt.statusline "%!v:lua.Statusline.statusline()")
 

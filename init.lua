@@ -15,7 +15,7 @@ local function ensure (user, repo, level)
   end
 end
 
-ensure("wbthomason", "packer.nvim", "start")
+ensure("wbthomason", "packer.nvim", "opt")
 ensure("rktjmp", "hotpot.nvim", "start")
 
 require("hotpot").setup({ provide_require_fennel = true })

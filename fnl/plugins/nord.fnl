@@ -7,4 +7,4 @@
                       (set g.nord_borders true)
                       (set g.nord_italic true)
                       (set g.nord_uniform_diff_background true)
-                      (cmd "colorscheme nord")))})
+                      (let [nord (require :nord)] (nord.set))))})

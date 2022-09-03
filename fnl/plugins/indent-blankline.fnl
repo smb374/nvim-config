@@ -13,6 +13,7 @@
                                  :TelescopeResults
                                  :mason
                                  ""]
+              :use_treesitter true
               :indentLine_enabled 1
               :show_first_indent_level false
               :show_current_context_start true
