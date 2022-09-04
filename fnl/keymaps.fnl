@@ -51,3 +51,15 @@
                :w ["<cmd>Telescope lsp_workspace_symbols<cr>" "Find Workspace Symbols"]}}}
       [n] :<leader>)
 
+;; Trouble
+(reg! {:t {:name :Trouble
+           :t [:<cmd>TroubleToggle<cr> "Toggle Trouble"]
+           :w ["<cmd>TroubleToggle workspace_diagnostics<cr>" "Toggle Trouble - Workspace Diagnostic"]
+           :d ["<cmd>TroubleToggle document_diagnostics<cr>" "Toggle Trouble - Document Diagnostic"]
+           :L ["<cmd>TroubleToggle loclist<cr>" "Toggle Trouble - Location List"]
+           :q ["<cmd>TroubleToggle quickfix<cr>" "Toggle Trouble - Quickfix"]
+           :l {:name :LSP
+               :r ["<cmd>TroubleToggle lsp_references<cr>" "Toggle Trouble - LSP References"]
+               :d ["<cmd>TroubleToggle lsp_definitions<cr>" "Toggle Trouble - LSP Definitions"]
+               :t ["<cmd>TroubleToggle lsp_type_definitions<cr>" "Toggle Trouble - LSP Type Definitions"]}}}
+      [n] :<leader>)

@@ -23,6 +23,7 @@
 (require :plugins.parinfer)
 (require :plugins.telescope)
 (require :plugins.treesitter)
+(require :plugins.trouble)
 (require :plugins.which-key)
 ;; language specific plugins
 (require :plugins.langs.rust)
