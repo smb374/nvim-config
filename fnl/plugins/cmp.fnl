@@ -1,5 +1,5 @@
 (import-macros {: packadd!} :macros)
-(local {: use} (require :utils))
+(local {: use : pack} (require :utils))
 
 (set vim.opt.completeopt [:menu :menuone :noselect])
 
@@ -72,15 +72,16 @@
                                             {:name :cmdline}]})
           (let [{: lazy_load} (require :luasnip.loaders.from_vscode)] (lazy_load)))))
 
-;; Chain load plugins befor config
-(use :L3MON4D3/LuaSnip {:event [:InsertEnter :CmdLineEnter]})
-(use :hrsh7th/nvim-cmp)
-(use :rafamadriz/friendly-snippets {:after [:nvim-cmp :LuaSnip :cmp_luasnip]
-                                    :config config})
-
-(use :hrsh7th/cmp-path {:after :nvim-cmp})
-(use :hrsh7th/cmp-buffer {:after :nvim-cmp})
-(use :hrsh7th/cmp-cmdline {:after :nvim-cmp})
-(use :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
-(use :saadparwaiz1/cmp_luasnip {:after :LuaSnip})
-(use :PaterJason/cmp-conjure {:after :conjure})
+(use :hrsh7th/nvim-cmp
+     {:wants :LuaSnip
+      :event [:InsertEnter :CmdLineEnter]
+      :config config
+      :requires [(pack :hrsh7th/cmp-path {:after :nvim-cmp})
+                 (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})
+                 (pack :hrsh7th/cmp-cmdline {:after :nvim-cmp})
+                 (pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
+                 (pack :PaterJason/cmp-conjure {:after :conjure})
+                 (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
+                 (pack :L3MON4D3/LuaSnip {:event [:InsertEnter :CmdLineEnter]
+                                          :wants :friendly-snippets
+                                          :requires [(pack :rafamadriz/friendly-snippets)]})]})

@@ -1,5 +1,5 @@
 (import-macros {: packadd!} :macros)
-(local {: use} (require :utils))
+(local {: use : pack} (require :utils))
 
 (fn config []
   (let [(ok? {: setup : load_extension}) (pcall #(require :telescope))]
@@ -20,8 +20,8 @@
 
 (use :nvim-telescope/telescope.nvim
      {:cmd :Telescope
-      :requires [{1 :nvim-telescope/telescope-ui-select.nvim :opt true}
-                 {1 :nvim-telescope/telescope-file-browser.nvim :opt true}
-                 {1 :nvim-telescope/telescope-media-files.nvim :opt true}
-                 {1 :nvim-telescope/telescope-fzf-native.nvim :opt true :run "make"}]
+      :requires [(pack :nvim-telescope/telescope-ui-select.nvim {:opt true})
+                 (pack :nvim-telescope/telescope-file-browser.nvim {:opt true})
+                 (pack :nvim-telescope/telescope-media-files.nvim {:opt true})
+                 (pack :nvim-telescope/telescope-fzf-native.nvim {:opt true :run :make})]
       :config config})

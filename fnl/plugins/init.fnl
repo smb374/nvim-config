@@ -13,6 +13,7 @@
 (require :plugins.format)
 (require :plugins.gitsigns)
 (require :plugins.indent-blankline)
+(require :plugins.leap)
 (require :plugins.lsp)
 (require :plugins.mason)
 (require :plugins.neogit)

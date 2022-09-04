@@ -1,5 +1,5 @@
 (import-macros {: packadd!} :macros)
-(local {: use} (require :utils))
+(local {: use : pack} (require :utils))
 
 (fn config []
   (let [(ok? {: setup}) (pcall #(require :nvim-treesitter.configs))]
@@ -42,7 +42,7 @@
             :TSModuleInfo]
       :event [:BufRead :BufWinEnter :BufNewFile]
       :run ":TSUpdate"
-      :requires [{1 :nvim-treesitter/playground :cmd :TSPlayground}
-                 {1 :p00f/nvim-ts-rainbow :opt true}
-                 {1 :nvim-treesitter/nvim-treesitter-textobjects :opt true}]
+      :requires [(pack :nvim-treesitter/playground {:cmd :TSPlayground})
+                 (pack :p00f/nvim-ts-rainbow {:opt true})
+                 (pack :nvim-treesitter/nvim-treesitter-textobjects {:opt true})]
       :config config})
