@@ -1,3 +1,4 @@
+(import-macros {: reg!} :macros)
 (local {: use} (require :utils))
 
 ;;; Improve UI
@@ -6,20 +7,20 @@
 (set vim.lsp.handlers.textDocument/hover
      (vim.lsp.with vim.lsp.handlers.hover {:border :solid}))
 
-(local {: wk-register} (require :utils))
 (local {:hover open-doc-float!
         :declaration goto-declaration!
         :definition goto-definition!
         :type_definition goto-type-definition!
         :code_action open-code-action-float!
         :rename rename!} vim.lsp.buf)
-(wk-register {:k [open-doc-float! "Show Document"]
-              :l {:name :LSP
-                  :a [open-code-action-float! "Show Code Actions"]
-                  :r [rename! "Rename"]
-                  :d [goto-definition! "Goto Definition"]
-                  :D [goto-declaration! "Goto Declaration"]
-                  :t [goto-type-definition! "Goto Type Definition"]}})
+(reg! {:k [open-doc-float! "Show Document"]
+       :l {:name :LSP
+           :a [open-code-action-float! "Show Code Actions"]
+           :r [rename! "Rename"]
+           :d [goto-definition! "Goto Definition"]
+           :D [goto-declaration! "Goto Declaration"]
+           :t [goto-type-definition! "Goto Type Definition"]}}
+      [n] :<leader>)
 
 (fn on_attach [client bufnr]
   (let [nvim (require :nvim)]

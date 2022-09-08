@@ -5,12 +5,12 @@
   (let [(ok? {: setup}) (pcall #(require :nvim-treesitter.configs))]
     (when ok?
       (packadd! nvim-ts-rainbow)
-      (packadd! nvim-treesitter-textobjects)
+      ;; (packadd! nvim-treesitter-textobjects)
       (setup {:ensure_installed :all
               :sync_install true
               :highlight {:enable true :use-language true}
               :indent {:enable true}
-              :rainbow {:enable true :extended_mode true}
+              :rainbow {:enable false}
               :incremental_selection {:enable true
                                       :keymaps {:init_selection :gnn
                                                 :node_incremental :grn
