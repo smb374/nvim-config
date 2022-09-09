@@ -1,8 +1,7 @@
 (local {: use} (require :utils))
 
 (fn config []
-  (vim.cmd "colorscheme oxocarbon"))
+  (vim.cmd "colorscheme oxocarbon-lua"))
 
-(use :shaunsingh/oxocarbon.nvim
-     {:run "./install.sh"
-      :config config})
+(use :B4mbus/oxocarbon-lua.nvim
+     {:config config})

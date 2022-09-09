@@ -21,7 +21,7 @@
 (require :plugins.onenord)
 (require :plugins.nvim-notify)
 (require :plugins.nvim-tree)
-;; (require :plugins.oxocarbon)
+;(require :plugins.oxocarbon)
 (require :plugins.parinfer)
 (require :plugins.telescope)
 (require :plugins.treesitter)
@@ -36,8 +36,9 @@
   (when ok?
     (local packages
            (fn [use]
-             (each [_ v (ipairs (or _G.pack {}))]
-               (use v))))
+             (when (not= _G.pack nil)
+               (each [_ v (ipairs _G.pack)]
+                 (use v)))))
     (init {:compile_path (.. (vim.fn.stdpath :config) "/lua/packer_compiled.lua")})
     (startup {1 packages
               :config {:display {:open_fn (fn []
