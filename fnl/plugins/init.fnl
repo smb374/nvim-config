@@ -17,30 +17,30 @@
 (require :plugins.lsp)
 (require :plugins.mason)
 (require :plugins.neogit)
-;(require :plugins.nord)
-(require :plugins.onenord)
 (require :plugins.nvim-notify)
 (require :plugins.nvim-tree)
-;(require :plugins.oxocarbon)
 (require :plugins.parinfer)
+(require :plugins.surround)
 (require :plugins.telescope)
 (require :plugins.treesitter)
 (require :plugins.trouble)
 (require :plugins.which-key)
+;; colors, choose one
+;(require :plugins.colors.nord)
+;(require :plugins.colors.onenord)
+;(require :plugins.colors.oxocarbon)
+(require :plugins.colors.tokyonight)
 ;; language specific plugins
 (require :plugins.langs.rust)
 
 (packadd! packer.nvim)
 
-(let [(ok? {: init : startup : util}) (pcall #(require :packer))]
+(let [(ok? {: startup}) (pcall #(require :packer))]
   (when ok?
     (local packages
            (fn [use]
              (when (not= _G.pack nil)
                (each [_ v (ipairs _G.pack)]
                  (use v)))))
-    (init {:compile_path (.. (vim.fn.stdpath :config) "/lua/packer_compiled.lua")})
     (startup {1 packages
-              :config {:display {:open_fn (fn []
-                                            (let [{: float} util]
-                                              (float {:border :single})))}}})))
+              :config {:display {:open_fn (fn [] ((. (require :packer.util) :float) {:border :single}))}}})))
