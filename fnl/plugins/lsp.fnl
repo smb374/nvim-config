@@ -85,9 +85,9 @@
 (use :tamago324/nlsp-settings.nvim
      {:config nlsp-config})
 
-;; (use :jose-elias-alvarez/null-ls.nvim
-;;      {:after :nvim-lspconfig
-;;       :config (fn []
-;;                 (let [(ok? {: setup}) (pcall #(require :null-ls))]
-;;                   (when ok?
-;;                     (setup))))})
+(use :jose-elias-alvarez/null-ls.nvim
+     {:after :nvim-lspconfig
+      :config (fn []
+                (let [(ok? {: setup}) (pcall #(require :null-ls))]
+                  (when ok?
+                    (setup))))})
