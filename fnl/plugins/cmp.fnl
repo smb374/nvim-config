@@ -1,4 +1,3 @@
-(import-macros {: packadd!} :macros)
 (local {: use : pack} (require :utils))
 
 (set vim.opt.completeopt [:menu :menuone :noselect])
@@ -58,6 +57,7 @@
                       :sources [{:name :nvim_lsp}
                                 {:name :luasnip}
                                 {:name :conjure}
+                                {:name :neorg}
                                 {:name :buffer}
                                 {:name :path}]
                       :formatting {:fields [:kind :abbr :menu]

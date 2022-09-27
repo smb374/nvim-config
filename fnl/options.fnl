@@ -31,5 +31,10 @@
   (set opt.background :dark)
   (set opt.termguicolors true)
   (set opt.number true)
+  ;; indention
+  (set opt.autoindent true)
+  (set opt.smartindent true)
+  ;; g options
   (set g.mapleader " ")
-  (set g.maplocalleader ","))
+  (set g.maplocalleader ",")
+  (set g.python3_host_prog (.. (vim.fn.expand "$HOME") "/.pyenv/versions/neovim/bin/python")))

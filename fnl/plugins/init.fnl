@@ -17,6 +17,7 @@
 (require :plugins.lsp)
 (require :plugins.mason)
 (require :plugins.neogit)
+;; (require :plugins.neorg)
 (require :plugins.nvim-notify)
 (require :plugins.nvim-tree)
 (require :plugins.parinfer)
